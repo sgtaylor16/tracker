@@ -26,7 +26,12 @@ function addBlankMilestone(){
     let cell3 = newrow.insertCell(2);
     cell3.innerHTML = "<input type = 'Date' name = 'msdate' id = 'newdate'>"
     let cell4 = newrow.insertCell(3);
-    cell4.innerHTML = "<input type = 'Submit'>";``  
+    let cell4func= "addCompleteMilestone(";
+    let cell4arg1 = "document.getElementById('newms').value";
+    let cell4arg2 = "document.getElementById('newdate').value";
+    let cell4final = cell4func+ cell4arg1 + ',' + cell4arg2 + ')>';
+    cell4.innerHTML = "<button onclick=" + cell4final + "Update" + "</button>";
+    console.log(cell4.innerHTML)
 }
 
 function addCompleteMilestone(comptext,compdate){
@@ -57,16 +62,18 @@ function addCompleteMilestone(comptext,compdate){
 
 function updateDate(tablerow){
     let mytable = document.getElementById("MSTable");
-    for (onerow of mytable.rows){
-        if (Number(onerow.getElementById("MSnumber").textContent) == tablerow){
-            onerow.getElementById("MSdate").textContent = onerow.getElementsbyTagName()
+    let mybody = mytable.getElementsByTagName("tbody")[0];
+    for (let onerow of mybody.rows){
+        if (Number(onerow.getElementsByClassName("MSnumber")[0].textContent) == tablerow){
+            onerow.getElementsByClassName("MSForecast")[0].textContent = onerow.getElementsByClassName("update")[0].value
         }
     }
 }
 
-function deleteMilestone(msnumber){
+function deleteMilestone(){
     let mytable = document.getElementById("MSTable");
     let myrows = mytable.rows;
+    let msnumber = Number(document.getElementById("MSdelnum").value)
     for (let i=0; i < myrows.length; i++){
         if (i == 0){continue;}
         let onerow = myrows[i];

@@ -37,7 +37,7 @@
       <table id = "MSTable">
         <col style="width:30pt">
         <col style="width:400pt">
-        <col style="width:30pt">
+        <col style="width:50pt">
         <col style="width:30pt">
         <col style="width:30pt">
         <col style="width:30pt">
@@ -57,23 +57,16 @@
             <td class = "Name">Launch Project</td>
             <td class = "MSForecast">6/1/19</td>
             <td class = "MSDate">Null</td>
-            <td><input type="Date" class = "update"><input type="submit" onclick="updateDate(1)"></td>
-            <td><input type="checkbox"</td>
-          </tr>
-          <tr>
-            <td class = "MSnumber">2</td>
-            <td class = "Name">PCB1</td>
-            <td class = "MSForecast">8/2/19</td>
-            <td class = "MSDate">Null</td>
-            <td><input type="Date"><input type="submit"></td>
+            <td><input type="Date" class="update" ><button onclick="updateDate(1)">Update</button></td>
             <td><input type = "checkbox"></td>
           </tr>
         </tbody>
       </table>
     </section>
-    <div class="AddMS">
-      <label>Add Milestone  <input type="submit" name = "Add MS" onclick="addBlankMilestone()"/></label>
+    <div class="Controls">
+      <button onclick="addBlankMilestone()">Add Milestone</button><br><br>
+      <input type="number" id="MSdelnum" style="width: 50px;"><button onclick="deleteMilestone()">Delete Milestone</button>
     </div>
-  ><script src = "cal.js"></script>
+  <script src = "cal.js"></script>
 </body>
 </html>
